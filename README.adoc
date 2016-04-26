@@ -1,4 +1,4 @@
-= Ansible Provisioning VM for OpenShift Demos
+== Ansible Provisioning VM for OpenShift Demos
 This VM will setup a machine ready to provision link:https://github.com/2015-Middleware-Keynote/demo-ansible/[Demo ansible]
 
 Only requirement are ec2-credentials that can be supplied in 2 forms:
