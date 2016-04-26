@@ -1,0 +1,11 @@
+== Full install
+./run.py  --deployment-type openshift-enterprise \
+          --master-instance-type t2.large --infra-instance-type c3.xlarge --node-instance-type r3.large \
+          --keypair roadshow \
+          --r53-zone example-ose.com \
+          --app-dns-prefix cloudapps \
+          --rhsm-user myrhuser \
+          --default-password ose3 \
+          --run-smoke-tests --num-smoke-test-users 10 \
+          --cluster-id MY_CLUSTER \
+          --region eu-west-1 --ami ami-27158350

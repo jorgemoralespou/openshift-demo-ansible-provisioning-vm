@@ -1,0 +1,14 @@
+= Ansible Provisioning VM for OpenShift Demos
+This VM will setup a machine ready to provision link:https://github.com/2015-Middleware-Keynote/demo-ansible/[Demo ansible]
+
+Only requirement are ec2-credentials that can be supplied in 2 forms:
+
+* In a ec2-creds file in the root of this repository
+* As environment variables
+
+The variables that need to be either on the file or available are:
+
+----
+AWS_ACCESS_KEY_ID=<KEY>
+AWS_SECRET_ACCESS_KEY<KEY>
+----
