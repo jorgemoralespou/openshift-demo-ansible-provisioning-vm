@@ -1,3 +1,5 @@
 ec2-creds
 .DS_Store
 .vagrant
+aws-keys/ec2-creds
+aws-keys/*.pem

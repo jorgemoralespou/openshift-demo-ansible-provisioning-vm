@@ -1,9 +1,12 @@
 == Ansible Provisioning VM for OpenShift Demos
 This VM will setup a machine ready to provision link:https://github.com/2015-Middleware-Keynote/demo-ansible/[Demo ansible]
 
-Only requirement are ec2-credentials that can be supplied in 2 forms:
+== Requirements
 
-* In a ec2-creds file in the root of this repository
+=== ec2 credentials
+Can be supplied in 2 forms:
+
+* In a ec2-creds file in the *aws-keys* subdirectory of this repository
 * As environment variables
 
 The variables that need to be either on the file or available are:
@@ -12,3 +15,15 @@ The variables that need to be either on the file or available are:
 AWS_ACCESS_KEY_ID=<KEY>
 AWS_SECRET_ACCESS_KEY<KEY>
 ----
+
+=== SSH Keypair
+A pem file need to be added in *aws-keys* subdirectory of this reporitory. They will be automatically added to the VM, but not to the git repository as
+long as it retains the *.pem* file extension. Every .pem file will be added.
+
+NOTE: Every amazon zone will need to have a keypair, so if you want to use the same in many region, create it and add it to the other regions.
+
+== REMEMBER
+Make sure to:
+
+- Make sure you're using the correct keypair name (in AWS) in the command line arguments
+- Check that the ami you're using are the appropriate ami for the AWS region you're using

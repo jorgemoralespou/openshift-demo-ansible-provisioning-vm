@@ -8,7 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.require_version ">= 1.7.2"
 
 $ec2_creds_script = <<SCRIPT
-   echo "source /vagrant/ec2-creds" >> /home/vagrant/.bashrc
+   echo "source /aws-keys/ec2-creds" >> /home/vagrant/.bashrc
 SCRIPT
 
 $ec2_envs_script = <<SCRIPT
@@ -25,6 +25,8 @@ Vagrant.configure(2) do |config|
    config.vm.box_check_update = false
 
    config.vm.synced_folder ".", "/vagrant", type: "rsync"
+   config.vm.synced_folder "scripts", "/scripts", type: "rsync"
+   config.vm.synced_folder "aws-keys", "/aws-keys", type: "rsync"
 
    config.vm.provider "virtualbox" do |vb|
       #   vb.gui = true
@@ -38,8 +40,9 @@ Vagrant.configure(2) do |config|
       config.vm.provision "shell", inline: $ec2_envs_script 
    end 
 
-   config.vm.provision "shell", path: "scripts/provisioning.sh"
 
+   config.vm.provision "shell", path: "scripts/provisioning.sh"
+   
    config.vm.provision "shell", run: "always", inline: <<-SHELL
       echo
       echo " OpenShift Demo ansible Provisioner VM created. Now you can provision your OpenShift demos easily."
@@ -47,7 +50,9 @@ Vagrant.configure(2) do |config|
       echo
       echo "vagrant ssh"
       echo
-      echo "cd ansible-scripts/demo-ansible"
+      echo "cd demo-ansible"
+      echo 
+      echo "REMEMBER: You need to add your ec2 ssh key to the VM with ssh-add <path to key file>"
       echo
       echo "./run.py  <OPTIONS>"
       echo
