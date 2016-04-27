@@ -27,13 +27,13 @@
          --keypair roadshow \
          --skip-subscription-management \
          --use-certificate-repos \
-         --certificate-file=/home/ec2-user/client-cert.pem --certificate-key=/home/ec2-user/client-key.pem \
+         --certificate-file=/aws-keys/client-cert.pem --certificate-key=/aws-keys/client-key.pem \
          --console-port 443 --api-port 443 \
          --num-nodes 2 \
          --run-smoke-tests \
          --num-smoke-test-users 20 \
          --default-password openshift3 \
-         --cluster-id jmorales \
+         --cluster-id example \
          --region eu-west-1 --ami ami-8b8c57f8
 
 == Devops training
