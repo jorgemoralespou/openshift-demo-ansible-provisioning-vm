@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
    config.vm.box = "fedora/23-cloud-base"
    config.vm.box_check_update = false
 
-   config.vm.synced_folder ".", "/vagrant", type: "rsync"
+   config.vm.synced_folder ".", "/vagrant", disabled: true
    config.vm.synced_folder "scripts", "/scripts", type: "rsync"
    config.vm.synced_folder "aws-keys", "/aws-keys", type: "rsync"
 
